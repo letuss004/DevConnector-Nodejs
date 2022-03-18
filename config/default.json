@@ -1,5 +1,3 @@
 {
-    "mongoURI": "mongodb+srv://letuss004:<lemanh20>@devconnector.hbwfp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    
-
+	"mongoURI": "mongodb+srv://mongouser:<12345678>@devconnector.hbwfp.mongodb.net/DevConnector?retryWrites=true&w=majority"
 }

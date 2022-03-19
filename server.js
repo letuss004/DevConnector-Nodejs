@@ -8,13 +8,11 @@ const PORT = process.env.PORT || 5000;
 
 // Connect db
 connectDB()
-    .then(r => {
-        console.log("After db connect.")
-    })
+    .then(
+        () => console.log("After db connect.")
+    )
     .catch(
-        e => {
-            console.log("DB fail")
-        }
+        () => console.log("DB fail")
     );
 
 // Init Middleware

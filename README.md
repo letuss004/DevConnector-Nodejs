@@ -1,3 +1,1 @@
 # DevConnector-Nodejs
-
-npm install

@@ -8,7 +8,7 @@ const config = require('config')
 const User = require("../../models/User")
 
 // @route   POST api/users
-// @desc    Register user route
+// @desc    Register user route, DON'T REQUIRE TO RESPONSE TOKEN, if necessary uncomment
 // @access  Public
 router.post(
     "/",
@@ -56,22 +56,23 @@ router.post(
                 password,
             });
             await user.save();
-            // Return JWT
-            const payload = {
-                user: {
-                    id: user.id,
-                }
-            };
-
-            jwt.sign(
-                payload,
-                config.get('jwtSecret'),
-                {expiresIn: 360000},
-                (err, token) => {
-                    if (err) throw err;
-                    res.json({token})
-                }
-            );
+            return res.json({success: true});
+            // Return JWT // fixme: either delete or uncomment
+            // const payload = {
+            //     user: {
+            //         id: user.id,
+            //     }
+            // };
+            //
+            // jwt.sign(
+            //     payload,
+            //     config.get('jwtSecret'),
+            //     {expiresIn: 360000},
+            //     (err, token) => {
+            //         if (err) throw err;
+            //         res.json({token})
+            //     }
+            // );
         } catch (err) {
             console.log(err.message)
             res.status(500).send("Server error");

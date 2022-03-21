@@ -35,6 +35,7 @@ router.get(
     }
 );
 
+
 // @route   GET api/profiles
 // @desc    Get all profiles
 // @access  Public
@@ -165,5 +166,30 @@ router.post('/',
         }
     }
 );
+
+
+// @route   POST api/profile/
+// @desc    Create or update a profile
+// @access  Private
+router.delete(
+    '/',
+    auth,
+    async (req, res) => {
+        try {
+            // @todo: remove user posts
+            // remove profile
+            await Profile.findOneAndRemove({user: req.user.id});
+            // Remove User
+            await User.findOneAndRemove({_id: req.user.id})
+
+            return res.json(
+                {msg: 'User deleted'}
+            )
+        } catch (err) {
+
+        }
+    }
+)
+
 
 module.exports = router;

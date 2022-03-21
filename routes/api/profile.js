@@ -8,7 +8,7 @@ const User = require('../../models/User')
 // @desc    Get current user profile
 // @access  Public
 router.get(
-    "/",
+    "/me",
     auth,
     async (req, res) => {
         try {
@@ -20,8 +20,12 @@ router.get(
             );
 
             if (!profile) {
-
+                return res.status(400).json(
+                    {msg: 'There is no profile for this user'}
+                )
             }
+
+            res.json(profile)
         } catch (err) {
             console.log(err.message)
             res.status(500).send('Server error')

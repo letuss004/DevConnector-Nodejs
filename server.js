@@ -33,7 +33,7 @@ app.get("/", (req, res) => res.send("Nodejs is running..."));
 app.use('/api/users', require('./routes/api/user'))
 app.use('/api/auth', require('./routes/api/auth'))
 app.use('/api/profiles', require('./routes/api/profile'))
-app.use('/api/users', require('./routes/api/user'))
+app.use('/api/posts', require('./routes/api/posts'))
 
 
 

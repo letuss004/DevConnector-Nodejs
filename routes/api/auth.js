@@ -32,7 +32,8 @@ router.post(
             if (!user) {
                 return res.status(400).json({
                     errors: [{
-                        msg: 'Invalid credentials',
+                        // msg: 'Invalid credentials',
+                        msg: 'User not exists',
                     }]
                 });
             }

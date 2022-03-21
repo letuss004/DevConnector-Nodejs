@@ -29,17 +29,68 @@ router.get(
             return res.json(profile)
         } catch (err) {
             console.log(err.message)
-            console.log('------------------------------------------------------')
             res.status(500).send('Server error')
         }
         res.send("Profiles route");
     }
 );
 
-
-// @route   GET api/profile/me
-// @desc    Get current user profile
+// @route   GET api/profiles
+// @desc    Get all profiles
 // @access  Public
+router.get(
+    '/',
+    async (req, res) => {
+        try {
+            const profiles = await Profile.find()
+                .populate(
+                    'user',
+                    ['name', 'avatar']
+                );
+
+            res.json(profiles);
+        } catch (err) {
+            console.log(err.message)
+            return res.status(500)
+                .send('Server Error')
+        }
+    }
+);
+
+
+// @route   GET api/profile/user/{user_id}
+// @desc    Get specific profile by email
+// @access  Public
+// @note:   Correct version is find by id. See udemy 18-11:00.
+router.get(
+    '/user/:email',
+    async (req, res) => {
+        try {
+            const profiles = await Profile.findOne({email: req.params.email})
+                .populate(
+                    'user',
+                    ['name', 'avatar']
+                );
+
+            if (!profiles)
+                return res.status(400)
+                    .json(
+                        {msg: "There is no profile"}
+                    );
+
+            return res.json(profiles);
+        } catch (err) {
+            console.log(err.message)
+            return res.status(500)
+                .send('Server Error')
+        }
+    }
+);
+
+
+// @route   POST api/profile/
+// @desc    Create or update a profile
+// @access  Private
 router.post('/',
     check('status', 'Status is required').not().isEmpty(),
     check('skills', 'Skill is required').not().isEmpty(),

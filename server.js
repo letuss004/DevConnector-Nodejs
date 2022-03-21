@@ -29,11 +29,11 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 app.get("/", (req, res) => res.send("Nodejs is running..."));
 
 // Define routes
-// TODO: ????
-app.use('/api/users', require('./routes/api/user'))
-app.use('/api/auth', require('./routes/api/auth'))
-app.use('/api/profiles', require('./routes/api/profile'))
-app.use('/api/posts', require('./routes/api/posts'))
+// First arg of use() is base url for routes
+app.use('/api/users', require('./routes/api/user'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profiles', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
 
 
 

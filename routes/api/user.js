@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const config = require('config')
 const User = require("../../models/User")
 
+
 // @route   POST api/users
 // @desc    Register user route, DON'T REQUIRE TO RESPONSE TOKEN, if necessary uncomment
 // @access  Public

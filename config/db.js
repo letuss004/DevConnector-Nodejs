@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("config");
-// const db = config.get("mongoURI");
-const db = "mongodb+srv://mongoroot:84aIJcZU2B6Dqj51@devconnector.hbwfp.mongodb.net/DevConnector?retryWrites=true&w=majority"
+const db = config.get("mongoURI");
 
 const connectDB = async (uri, callback) => {
     try {
@@ -20,4 +19,6 @@ const connectDB = async (uri, callback) => {
         process.exit(1);
     }
 };
+
+
 module.exports = connectDB;

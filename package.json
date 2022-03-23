@@ -4,8 +4,8 @@
   "description": "Software for dev",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "start": "node server"
   },
   "author": "Le Anh Tu",
   "license": "MIT",

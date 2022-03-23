@@ -4,8 +4,10 @@
   "description": "Software for dev",
   "main": "server.js",
   "scripts": {
+    "start": "node server",
     "server": "nodemon server",
-    "start": "node server"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Le Anh Tu",
   "license": "MIT",

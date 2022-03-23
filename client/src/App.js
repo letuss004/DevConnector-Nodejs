@@ -10,15 +10,15 @@ const App = () => (
     <Router>
         <Fragment>
             <Navbar/>
+            <Routes>
+                <Route path='/' exact element={<Landing/>}/>
+            </Routes>
             <div className="container">
                 <Routes>
                     <Route path='/register' exact element={<Register/>}/>
                     <Route path='/login' exact element={<Login/>}/>
                 </Routes>
             </div>
-            <Routes>
-                <Route path='/' exact element={<Landing/>}/>
-            </Routes>
         </Fragment>
     </Router>
 );

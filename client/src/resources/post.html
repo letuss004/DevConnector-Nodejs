@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Welcome To The Developer Connector</title>
   </head>
   <body>
@@ -27,6 +27,7 @@
         <li><a href="profiles.html">Developers</a></li>
         <li><a href="posts.html">Posts</a></li>
         <li>
+          |
           <a href="dashboard.html" title="Dashboard"
             ><i class="fas fa-user"></i>
             <span class="hide-sm">Dashboard</span></a
@@ -64,7 +65,7 @@
       </div>
 
       <div class="post-form">
-        <div class="post-form-header bg-primary">
+        <div class="bg-primary p">
           <h3>Leave A Comment</h3>
         </div>
         <form class="form my-1">
@@ -73,12 +74,13 @@
             cols="30"
             rows="5"
             placeholder="Comment on this post"
+            required
           ></textarea>
           <input type="submit" class="btn btn-dark my-1" value="Submit" />
         </form>
       </div>
 
-      <div class="posts">
+      <div class="comments">
         <div class="post bg-white p-1 my-1">
           <div>
             <a href="profile.html">
@@ -96,6 +98,9 @@
               possimus corporis sunt necessitatibus! Minus nesciunt soluta
               suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
               dolor? Illo perferendis eveniet cum cupiditate aliquam?
+            </p>
+             <p class="post-date">
+                Posted on 04/16/2019
             </p>
           </div>
         </div>
@@ -118,6 +123,15 @@
               suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
               dolor? Illo perferendis eveniet cum cupiditate aliquam?
             </p>
+             <p class="post-date">
+                Posted on 04/16/2019
+            </p>
+             <button      
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fas fa-times"></i>
+          </button>
           </div>
         </div>
       </div>

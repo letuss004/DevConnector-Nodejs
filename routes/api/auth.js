@@ -3,11 +3,10 @@ const router = express.Router();
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const bcrypt = require('bcryptjs')
-const auth = require('../../middleware/auth')
+// const auth = require('../../middleware/auth')
 const User = require('../../models/User')
 const {check, validationResult, body} = require('express-validator')
 const gravatar = require("gravatar");
-
 
 // @route   GET api/auth
 // @desc    Auth route, as I mean it log in route, not require an auth(), if necessary uncomment

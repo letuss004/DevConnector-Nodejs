@@ -9,3 +9,4 @@
   variable can use by function calling () to call function or simply by variable name for "Function Object"
 - Redux alert flow: App -> store -> index -> alert -> types
 - Reducers flow: 
+- Flow: https://drive.google.com/file/d/10EqYbb4e6CZ-eU7LuOqg-zi5sRq6Ktcl/view?usp=sharing

@@ -16,7 +16,7 @@ router.post(
     body('email', 'Invalid email address').isEmail(),
     check('name', 'Name is required').not().isEmpty(),
     body('password', 'Password is required').isLength(
-        {min: 6, max: 12}
+        {min: 6, max: 40}
     ),
     async (req, res) => {
         const errors = validationResult(req);
@@ -57,23 +57,22 @@ router.post(
                 password,
             });
             await user.save();
-            return res.json({success: true});
-            // Return JWT // fixme: either delete or uncomment
-            // const payload = {
-            //     user: {
-            //         id: user.id,
-            //     }
-            // };
-            //
-            // jwt.sign(
-            //     payload,
-            //     config.get('jwtSecret'),
-            //     {expiresIn: 360000},
-            //     (err, token) => {
-            //         if (err) throw err;
-            //         res.json({token})
-            //     }
-            // );
+            // Return JWT
+            const payload = {
+                user: {
+                    id: user.id,
+                }
+            };
+
+            jwt.sign(
+                payload,
+                config.get('jwtSecret'),
+                {expiresIn: 360000},
+                (err, token) => {
+                    if (err) throw err;
+                    return res.json({token})
+                }
+            );
         } catch (err) {
             console.log(err.message)
             res.status(500).send("Server error");

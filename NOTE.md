@@ -7,4 +7,5 @@
 - Use splice() for convenience delete
 - Function is stored in a variable will be considered as anonymous function even if it has a name. And the name of
   variable can use by function calling () to call function or simply by variable name for "Function Object"
-- 
+- Redux alert flow: App -> store -> index -> alert -> types
+- Reducers flow: 

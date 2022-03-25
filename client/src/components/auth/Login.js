@@ -38,8 +38,8 @@ const Login = ({login, isAuthenticated}) => {
                         placeholder="Email Address"
                         name="email"
                         value={email}
-                        onChange={e => onChange(e)}/>
-
+                        onChange={e => onChange(e)}
+                    />
                 </div>
                 <div className="form-group">
                     <input

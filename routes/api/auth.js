@@ -32,7 +32,7 @@ router.post(
     body('password', "Invalid password").exists(),
     async (req, res) => {
         const errors = validationResult(req);
-
+        console.log('Received')
         if (!errors.isEmpty()) {
             return res
                 .status(400)
@@ -51,6 +51,7 @@ router.post(
                     }]
                 });
             }
+            console.log('Processing')
             // if credentials not valid
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {

@@ -6,12 +6,13 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
+import Dashboard from './components/layout/Dashboard';
 // Redux
 import {Provider} from 'react-redux';
 import store from './store';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
-
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 const App = () => {
     useEffect(() => {
@@ -38,12 +39,13 @@ const App = () => {
                         <Routes>
                             <Route path='/register' exact element={<Register/>}/>
                             <Route path='/login' exact element={<Login/>}/>
+                            <Route path='/dashboard' element={<PrivateRoute component={Dashboard}/>}/>
                         </Routes>
                     </section>
                 </Fragment>
             </Router>
         </Provider>
-    )
+    );
 };
 
 

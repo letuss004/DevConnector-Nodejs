@@ -3,10 +3,25 @@ const router = express.Router();
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const bcrypt = require('bcryptjs')
-// const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth')
 const User = require('../../models/User')
 const {check, validationResult, body} = require('express-validator')
 const gravatar = require("gravatar");
+
+
+// @route    GET api/auth
+// @desc     Get user by token
+// @access   Private
+router.get('/', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 
 // @route   GET api/auth
 // @desc    Auth route, as I mean it log in route, not require an auth(), if necessary uncomment
@@ -15,9 +30,9 @@ router.post(
     "/",
     body('email', "Invalid email").isEmail(),
     body('password', "Invalid password").exists(),
-    // auth,
     async (req, res) => {
         const errors = validationResult(req);
+
         if (!errors.isEmpty()) {
             return res
                 .status(400)

@@ -15,6 +15,7 @@ router.get(
     "/me",
     auth,
     async (req, res) => {
+        console.log('/me accepted');
         try {
             const profile = await Profile.findOne(
                 {user: req.user.id}
@@ -26,14 +27,13 @@ router.get(
             if (!profile) {
                 return res.status(400).json(
                     {msg: 'There is no profile for this user'}
-                )
+                );
             }
-            return res.json(profile)
+            return res.json(profile);
         } catch (err) {
             console.log(err.message)
             res.status(500).send('Server error')
         }
-        res.send("Profiles route");
     }
 );
 

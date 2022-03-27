@@ -8,7 +8,7 @@ import {
     CLEAR_PROFILE,
     ACCOUNT_DELETED,
     GET_REPOS,
-    NO_REPOS
+    NO_REPOS, LOGOUT
 } from './types';
 
 
@@ -29,3 +29,10 @@ export const getCurrentProfile = () => async (dispatch) => {
         });
     }
 };
+
+
+// logout /clear profile
+export const logout = () => dispatch => {
+    dispatch({type: CLEAR_PROFILE});
+    dispatch({type: LOGOUT})
+}

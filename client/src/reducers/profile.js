@@ -17,7 +17,7 @@ const initialState = {
 };
 
 function profileReducer(state = initialState, action) {
-    const { type, payload } = action;
+    const {type, payload} = action;
 
     switch (type) {
         case GET_PROFILE:
@@ -33,6 +33,13 @@ function profileReducer(state = initialState, action) {
                 loading: false,
                 profile: null
             };
+        case CLEAR_PROFILE:
+            return {
+                ...state,
+                profile: null,
+                repos: [],
+                loading: false
+            }
         default:
             return state;
     }

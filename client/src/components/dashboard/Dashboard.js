@@ -4,8 +4,7 @@ import {connect} from "react-redux";
 import {getCurrentProfile} from '../../actions/profile'
 import Spinner from "../layout/Spinner";
 import {Link} from "react-router-dom";
-// import {} from '../../actions/auth'
-
+import DashboardAction from "./DashboardAction";
 
 const Dashboard = ({getCurrentProfile, deleteAccount, auth: {user}, profile: {profile}}) => {
     useEffect(() => {
@@ -20,7 +19,7 @@ const Dashboard = ({getCurrentProfile, deleteAccount, auth: {user}, profile: {pr
             </p>
             {profile !== null ? (
                 <Fragment>
-                    {/*<DashboardActions/>*/}
+                    <DashboardAction/>
                     {/*<Experience experience={profile.experience}/>*/}
                     {/*<Education education={profile.education}/>*/}
 

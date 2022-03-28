@@ -9,6 +9,8 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileForm from './components/profile_forms/CreateProfile';
 import EditProfile from './components/profile_forms/EditProfile'
+import AddEducation from "./components/profile_forms/AddEducation";
+import AddExperience from "./components/profile_forms/AddExperience";
 // Redux
 import {Provider} from 'react-redux';
 import store from './store';
@@ -50,6 +52,14 @@ const App = () => {
                         element={<PrivateRoute component={EditProfile}/>}
                     />
                     <Route path='/' element={<Landing/>}/>
+                    <Route
+                        path="add-experience"
+                        element={<PrivateRoute component={AddExperience}/>}
+                    />
+                    <Route
+                        path="add-education"
+                        element={<PrivateRoute component={AddEducation}/>}
+                    />
                 </Routes>
             </Router>
         </Provider>

@@ -170,7 +170,7 @@ router.post('/',
 );
 
 
-// @route   POST api/profile/
+// @route   DELETE api/profile/
 // @desc    Create or update a profile
 // @access  Private
 router.delete(

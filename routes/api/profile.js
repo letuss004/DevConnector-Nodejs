@@ -38,8 +38,8 @@ router.get(
 );
 
 
-// @route   GET api/profiles
-// @desc    Get all profiles
+// @route   GET api/profile
+// @desc    Get all profile
 // @access  Public
 router.get(
     '/',
@@ -50,7 +50,6 @@ router.get(
                     'user',
                     ['name', 'avatar']
                 );
-
             res.json(profiles);
         } catch (err) {
             console.log(err.message)

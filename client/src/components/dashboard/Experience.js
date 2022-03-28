@@ -6,7 +6,6 @@ import formatDate from '../../utils/formatDate';
 
 
 const Experience = ({experience, deleteExperience}) => {
-    console.log('Experience: ', experience);
     const experiences = experience.map((exp) => (
         <tr key={exp._id}>
             <td>{exp.company}</td>

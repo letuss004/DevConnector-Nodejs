@@ -22,10 +22,15 @@ function profileReducer(state = initialState, action) {
     switch (type) {
         case GET_PROFILE:
         case UPDATE_PROFILE:
-        case GET_PROFILES:
             return {
                 ...state,
                 profile: payload,
+                loading: false
+            };
+        case GET_PROFILES:
+            return {
+                ...state,
+                profiles: payload,
                 loading: false
             };
         case PROFILE_ERROR:

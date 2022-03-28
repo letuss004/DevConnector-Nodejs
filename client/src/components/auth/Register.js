@@ -13,6 +13,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
         password: '',
         password2: ''
     });
+    console.log(React)
     const {name, email, password, password2} = formData;
     const onChange = (e) => setFormData({
         ...formData,
@@ -97,8 +98,8 @@ Register.propTypes = {
     isAuthenticated: PropTypes.bool
 };
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = ({auth}) => ({
+    isAuthenticated: auth.isAuthenticated
 });
 
 export default connect(

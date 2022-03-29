@@ -8,6 +8,7 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({getProfileById, profile: {profile}, auth}) => {
     const {id} = useParams();
@@ -38,19 +39,17 @@ const Profile = ({getProfileById, profile: {profile}, auth}) => {
                             <ProfileAbout profile={profile}/>
                             <div className="profile-exp bg-white p-2">
                                 <h2 className="text-primary">Experience</h2>
-                                {
-                                    profile.experiences.length > 0 ? (
-                                        <Fragment>
-                                            {
-                                                profile.experience.map((experience) => (
-                                                    <ProfileExperience key={experience._id} experience={experience}/>
-                                                ))
-                                            }
-                                        </Fragment>
-                                    ) : (
-                                        <h4>No experience credentials</h4>
-                                    )
-                                }
+                                {profile.experiences.length > 0 ? (
+                                    <Fragment>
+                                        {
+                                            profile.experiences.map((experience) => (
+                                                <ProfileExperience key={experience._id} experience={experience}/>
+                                            ))
+                                        }
+                                    </Fragment>
+                                ) : (
+                                    <h4>No experience credentials</h4>
+                                )}
                             </div>
                             {/*  -----  */}
                             <div className="profile-edu bg-white p-2">
@@ -68,6 +67,10 @@ const Profile = ({getProfileById, profile: {profile}, auth}) => {
                                     <h4>No education credentials</h4>
                                 )}
                             </div>
+                            {/*  ------  */}
+                            {profile.github_username && (
+                                <ProfileGithub username={profile.github_username}/>
+                            )}
                         </div>
                     </Fragment>
                 )

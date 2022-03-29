@@ -187,6 +187,7 @@ export const getProfileById = (userId) => async (dispatch) => {
             payload: res.data
         });
     } catch (err) {
+        console.log('getProfileById err:', err)
         dispatch({
             type: PROFILE_ERROR,
             payload: {msg: err.response.statusText, status: err.response.status}
@@ -199,11 +200,13 @@ export const getProfileById = (userId) => async (dispatch) => {
 export const getGithubRepos = username => async dispatch => {
     try {
         const res = await axios.get(`/api/profile/github/${username}`);
+        console.log(res)
         dispatch({
             type: GET_REPOS,
             payload: res.data
         });
     } catch (err) {
+        console.log('getGitHubRepos err:', err);
         dispatch({
             type: PROFILE_ERROR,
             payload: {msg: err.response.statusText, status: err.response.status}

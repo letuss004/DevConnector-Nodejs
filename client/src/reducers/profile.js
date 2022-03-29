@@ -47,6 +47,17 @@ function profileReducer(state = initialState, action) {
                 repos: [],
                 loading: false
             }
+        case GET_REPOS:
+            return {
+                ...state,
+                repos: payload,
+                loading: false
+            };
+        case NO_REPOS:
+            return {
+                ...state,
+                repos: []
+            };
         default:
             return state;
     }

@@ -180,8 +180,8 @@ export const deleteAccount = () => async dispatch => {
 // Get profile by ID
 export const getProfileById = (userId) => async (dispatch) => {
     try {
-        const res = await axios.get(`/profile/user/${userId}`);
-
+        const res = await axios.get(`/api/profile/user/${userId}`);
+        console.log('getProfileById:', res.data)
         dispatch({
             type: GET_PROFILE,
             payload: res.data

@@ -59,36 +59,26 @@ router.get(
     }
 );
 
+// @route    GET api/profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   Public
+router.get('/user/:user_id', async (req, res) => {
+    try {
+        const profile = await Profile.findOne({
+            user: req.params.user_id
+        }).populate('user', ['name', 'avatar']);
 
-// @route   GET api/profile/user/{user_id}
-// @desc    Get specific profile by email
-// @access  Public
-// @note:   Correct version is find by id. See udemy 18-11:00.
-router.get(
-    '/user/:email',
-    async (req, res) => {
-        try {
-            const profiles = await Profile.findOne({email: req.params.email})
-                .populate(
-                    'user',
-                    ['name', 'avatar']
-                );
+        if (!profile) return res.status(400).json({msg: 'Profile not found'});
 
-            if (!profiles)
-                return res.status(400)
-                    .json(
-                        {msg: "There is no profile"}
-                    );
-
-            return res.json(profiles);
-        } catch (err) {
-            console.log(err.message)
-            return res.status(500)
-                .send('Server Error')
+        res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({msg: 'Profile not found'});
         }
+        res.status(500).send('Server Error');
     }
-);
-
+});
 
 // @route   POST api/profile/
 // @desc    Create or update a profile

@@ -18,6 +18,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
+import Profile from "./components/profile/Profile";
 
 
 const App = () => {
@@ -60,6 +61,8 @@ const App = () => {
                         path="add-education"
                         element={<PrivateRoute component={AddEducation}/>}
                     />
+                    <Route path="profile/:id" element={<Profile/>}/>
+
                 </Routes>
             </Router>
         </Provider>

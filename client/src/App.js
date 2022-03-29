@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './resources/css/style.css';
 import Navbar from './components/layout/Navbar';
@@ -13,12 +13,14 @@ import AddEducation from "./components/profile_forms/AddEducation";
 import AddExperience from "./components/profile_forms/AddExperience";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import Profiles from "./components/profiles/Profiles";
+import Posts from "./components/posts/Posts";
 // Redux
 import {Provider} from 'react-redux';
 import store from './store';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
 import Profile from "./components/profile/Profile";
+import Post from "./components/post/Post";
 
 
 const App = () => {
@@ -62,7 +64,11 @@ const App = () => {
                         element={<PrivateRoute component={AddEducation}/>}
                     />
                     <Route path="profile/:id" element={<Profile/>}/>
-
+                    <Route
+                        path="posts"
+                        element={<PrivateRoute component={Posts}/>}
+                    />
+                    <Route path="posts/:id" element={<PrivateRoute component={Post} />} />
                 </Routes>
             </Router>
         </Provider>

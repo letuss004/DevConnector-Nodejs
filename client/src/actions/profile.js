@@ -177,6 +177,7 @@ export const deleteAccount = () => async dispatch => {
     }
 };
 
+
 // Get profile by ID
 export const getProfileById = (userId) => async (dispatch) => {
     try {
@@ -208,7 +209,7 @@ export const getGithubRepos = username => async dispatch => {
     } catch (err) {
         console.log('getGitHubRepos err:', err);
         dispatch({
-            type: PROFILE_ERROR,
+            type: NO_REPOS,
             payload: {msg: err.response.statusText, status: err.response.status}
         });
     }

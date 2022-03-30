@@ -1,6 +1,9 @@
 <div align="center">
 
 # **Training Report: Developer Connector**
+
+##### Le Anh Tu - NV0002060
+
 <br>
 
 </div>
